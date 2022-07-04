@@ -1,0 +1,91 @@
+.docs_sidebar {
+
+    font-family: theme('fontFamily.second');
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            display: block;
+            padding: .65em 0;
+            white-space: nowrap;
+
+            &.active {
+                > h2 {
+                    color: theme('colors.yellow.DEFAULT')
+                }
+            }
+
+            h2 {
+
+                display: block;
+                font-size: 1rem;
+                font-weight: 500;
+                color: theme('colors.white');
+                text-decoration: none;
+                margin-bottom: 0;
+                cursor: pointer;
+                transition: all 0.3s ease;
+
+                @screen xl {
+                    font-size: theme('spacing.5');
+                }
+
+                &:hover {
+                    transform: translate3d(5px, 0, 0);
+                }
+            }
+
+            a {
+                display: block;
+                font-size: 1rem;
+                font-weight: 500;
+                color: theme('colors.white');
+                text-decoration: none;
+                transition: transform 0.3s ease;
+
+                @screen xl {
+                    font-size: theme('spacing.5');
+                }
+
+                &:hover {
+                    transform: translate3d(5px, 0, 0);
+                }
+            }
+        }
+
+        ul {
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height .45s ease;
+
+            li {
+                a {
+                    position: relative;
+                    padding-left: 1em;
+                    font-weight: 400;
+                    line-height: 1.25;
+                }
+
+                &.active {
+                    > a {
+                        color: theme('colors.yellow.DEFAULT')
+                    }
+                }
+            }
+        }
+
+        .sub--on {
+            & > h2 {
+                //color: theme('colors.yellow.DEFAULT');
+                margin-bottom: 1em;
+            }
+
+            ul {
+                max-height: none;
+            }
+        }
+    }
+}

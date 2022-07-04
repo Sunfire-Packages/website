@@ -1,6 +1,12 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DocsController;
+
+if (! defined('DEFAULT_VERSION')) {
+    define('DEFAULT_VERSION', 'main');
+}
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [DocsController::class , 'showRootPage'])->name('homepage');
+
+Route::get('docs', [DocsController::class , 'showRootPage']);
+Route::get('docs/{version}/{page?}', [DocsController::class ,'show'])->name('docs.version');
